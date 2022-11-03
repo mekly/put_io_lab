@@ -50,10 +50,11 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* ...
+* [UC4](#uc4): Przekazanie produktu
 
 [Kupujący](#ac2)
-* ...
+* [UC2](#uc2): Zgłoszenie oferty zakupu
+* [UC3](#uc3): Opłacenie zakupu
 
 ---
 <a id="uc1"></a>
@@ -77,19 +78,50 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Zgłoszenie oferty zakupu
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Kupujący](#ac2)
 
 **Scenariusz główny:**
-1. ...
+1. [Kupujący](#ac2) podaje oferowaną cenę i zgłasza chęć zakupu
+2. System weryfikuje że cena jest wyższa niż najwyższa oferowana.
+3. System informuje o wystawieniu oferty zakupu
+
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+2.A. Wprowadzono za niską ofertę
+* 2.A.1. System informuje o za niskiej ofercie
+* 2.A.2 Przejdź do kroku 1
 
 ---
+<a id="uc3"></a>
+### UC3: Opłacenie zakupu
+
+**Aktorzy:**[Kupujący](#ac2) 
+
+**Scenariusz główny:**
+1. [Kupujący](#ac2) zgłasza chęć opłacenia zakupu.
+2. System przekierowuje do dostawcy płatności.
+3. System weryfikuje że płatność się powiodła.
+4. System informuje o pomyślnym przebiegu transakcji płatniczej.
+
+**Scenariusze alternatywne:**
+
+3.A Niepowodzenie płatności
+* 3.A.1 System informuje o niepowodzeniu płatności
+* 3.A.2 Przejdź do kroku 2
+---
+<a id="uc4"></a>
+### UC4:  Generowanie listu przewozowego
+
+**Aktorzy:** [Sprzedający](#ac1)
+
+**Scenariusz główny:**
+1. [Sprzedający](#ac1) zgłasza chęć wysyłki.
+2. System generuje list przewozowy dla produktu niebędącego cyfrowym.
+<a id="uc5"></a>
+### UC5: 
 
 ## Obiewkty biznesowe (inaczje obiekty dziedzinowe lub informatycjne)
 
@@ -120,6 +152,6 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 | Przypadek użycia                                  | Aukcja | Produkt | ... |
 | ------------------------------------------------- | ------ | ------- | --- |
 | UC1: Wystawienia produktu na aukcję               |    C   |    C    | ... |
-| ???                                               |  ...   |  ...    | ... |
+| UC2: Zgłoszenie oferty zakupu                     |  U     |  ...   | ...  |
 
 
