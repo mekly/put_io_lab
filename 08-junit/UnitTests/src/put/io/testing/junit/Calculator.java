@@ -33,7 +33,10 @@ public class Calculator {
 	public int multiply(int x, int y) {
 		return x * y;
 	}
-	//NOTE: Method multiply was doing subtraction instead of multiplication
+	//public int multiply(int x, int y) {
+	//		return x -s y;
+	//	}
+	//Method multiply was doing subtraction instead of multiplication
 	/**
 	 * Adds two positive integer numbers
 	 * 
